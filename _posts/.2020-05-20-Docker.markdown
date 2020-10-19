@@ -1,0 +1,142 @@
+---
+title: "Cloud"
+layout: post
+date: 2020-05-20 12:00
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- Cloud
+- Network
+
+category: blog
+author: thierry
+description: Markdown summary with different options
+---
+
+#### Especial Elements
+- [Resumo](#resumo)
+- [Instalação](#instalação)
+- [Docker-Hub](#docker-Hub)
+- [Dockerfile](#dockerfile)
+- [Conciderações finais](#spoiler)
+
+## Resumo
+
+O Docker é um projeto de código aberto projetado para automatizar a implementação em larga escala de aplicativos em contêineres. A ideia de fazer isso é fornecer camadas de abstração que permitem que um programa seja executado,independentemente do sistema operacional que ele executa. 
+
+O Docker é uma ferramenta Open Source que permite a criação de ambientes virtuais, utilizando para isso Linux Containers. Um container é um conjunto de processos isolados do restante do sistema, o que permite virtualização em nível de sistema operacional.
+
+Com o Docker podemos criar pacotes que contenham não só a nossa aplicação, mas também todas as dependências necessárias para o seu funcionamento. Chamamos esses pacotes de images, e é a partir delas que o Docker constrói o container. Um container construído dessa forma se manterá consistente em diferentes etapas do desenvolvimento da aplicação, incluindo testes e implantação.
+
+Podemos ainda versionar e distribuir images, juntamente com a configuração do ambiente de desenvolvimento utilizado para criá-la. Assim, trabalhar com images é algo próximo daquela que aplicamos ao código da aplicação. É possível, ainda, utilizar imagens prontas provenientes do Dockerhub para fazer em segundos tarefas de instalação e configuração de softwares, bibliotecas, dlls, enfim, tudo o que for necessário para que a aplicação funcione, algo que pode consumir muitas horas do programador com facilidade.
+
+## Virtualização: Máquina Virtual VS Docker Container
+
+Antes de falar sobre o Docker precisamos entender o que é virtualização. Virtualizar é simular o comportamento físico de um computador por meio de um software. Antes desse conceito, precisávamos dedicar todos os recursos de um servidor a execução de uma única aplicação para garantir que ela funcionasse de forma isolada das demais. Hoje, a virtualização permite a execução de várias aplicações no mesmo servidor criando um isolamento lógico entre elas.
+
+A primeira tecnologia utilizada para a virtualização de servidores foi a máquina virtual, também conhecidas como virtual machines ou, simplesmente, VMs. Nesse contexto, temos um software chamado Hypervisor, responsável pela execução das máquinas virtuais e pela distribuição dos recursos da máquina física entre elas. As máquinas virtuais, por sua vez, simulavam um servidor completo com seu próprio kernel e sistema operacional.
+
+<p align="center">
+  <img src="https://arquivo.devmedia.com.br/pablo/pacotes/oPPpjux8ogexSc4m4bkuQm6lOc4JWI4RUh9l8MJT.png">
+  <br><br>
+</p>
+
+Embora tenha sido uma grande evolução em relação ao modelo anterior, a virtualização por meio de máquinas virtuais consome uma grande parte dos recursos do computador. Isso acontece pois o software Hypervisor precisa simular o funcionamento hardware do computador, criando uma ponte entre a máquina virtual e o hardware físico. Além disso, a máquina virtual possui o seu próprio kernel e sistema operacional, que também consomem recursos durante a sua execução. Os containers linux, por outro lado, compartilham o Kernel do host (máquina física) em lugar de simular todos os componentes de um servidor físico. Assim, eles fornecem uma virtualização a nível de sistema operacional, o que isola as aplicações em execução sem utilizar tantos recursos da máquina quanto as máquinas virtuais.
+
+<p align="center">
+  <img src="https://arquivo.devmedia.com.br/pablo/pacotes/toa3f31jENGwJ5lnon1xyNHjTpKokZwZnEOG1C7N.png">
+  <br><br>
+</p>
+
+---
+
+## Instalação
+
+#### Ubuntu 18.04
+
+Para instalar o Docker no Ubuntu 18.04 e derivados e ainda poder receber automaticamente as futuras atualizações dele, você deve fazer o seguinte:
+
+**Passo 1.** Abra um terminal (use as teclas CTRL + ALT + T);
+
+**Passo 2.** Use o comando abaixo para atualizar o sistema;
+
+{% highlight shell %}
+sudo apt update && sudo apt upgrade 
+{% endhighlight %}
+
+**Passo 3.** Instale alguns pacotes necessários para instalação do Docker;
+
+{% highlight shell %}
+sudo apt-get install apt-transport-https ca-certificates curl gnupg software-properties-common 
+{% endhighlight %}
+
+**Passo 4.** Em seguida, adicione a chave GPG do repositório do Docker. Isso serve para adicionar ainda mais segurança aos pacotes que serão baixados;
+
+{% highlight shell %}
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+{% endhighlight %}
+
+**Passo 5.** Use o comando abaixo para adicionar o repositório do Docker;
+
+{% highlight shell %}
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+{% endhighlight %}
+
+**Passo 6.** É hora de instalar o Docker. Para isso, execute o seguinte comando;
+
+{% highlight shell %}
+sudo apt install docker-ce
+{% endhighlight %}
+
+**Passo 7.** No final da instalação, para ter o serviço endo executado na inicialização do sistema, use esses comndos;
+
+{% highlight shell %}
+sudo systemctl enable docker
+{% endhighlight %}
+{% highlight shell %}
+sudo systemctl start docker
+{% endhighlight %}
+
+**Passo 8.** Para garantir que o Docker esteja totalmente funcional, é uma boa ideia verificar o status do serviço;
+
+{% highlight shell %}
+sudo systemctl status docker
+{% endhighlight %}
+
+**Passo 9.** Finalmente, veja a versão do Docker.
+{% highlight shell %}
+docker -v
+{% endhighlight %}
+
+**Passo 10.** Teste da imagem.
+
+
+#### Windows 10
+
+**Passo 1.** Baixe o Docker para [Windows](https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe) e execute-o. Siga o passo a passo do instalador. Você irá precisar aceitar os termos de uso, autorizar a instalação e esperar o Docker carregar todos os arquivos. Ao final, clique em Finish.
+
+**Passo 2.** Se não iniciar automaticamente, busque por "Docker" na barra de pesquisa do Windows e aperte dê um duplo clique sobre o ícone do Docker for Windows. 
+
+<p align="center">
+  <img src="https://arquivo.devmedia.com.br/pablo/pacotes/H4YIs2E4jPiA6g60l7G1MuxVAcXzYSQsBZP5eeWf.png">
+  <br><br>
+</p>
+
+**Passo 3.** Faça login com sua conta do Docker. Se ainda não possui uma conta, acesse https://cloud.docker.com/ e crie gratuitamente.
+
+<p align="center">
+  <img src="https://arquivo.devmedia.com.br/pablo/pacotes/yaZfHt0v4mQZ8lms9LScWjAGmXf5EfighxY9YuJo.png">
+  <br><br>
+</p>
+
+**Passo 4** Após realizar o login, vá na aba Settings e selecione todas as partições do seu HD e clique em Apply.
+
+<p align="center">
+  <img src="https://arquivo.devmedia.com.br/pablo/pacotes/F12pGOdGkSwPchOzzNfHj2MAM1cbFiUhdvMOZFXv.png">
+  <br><br>
+</p>
+
+## Docker Hub
+
+
+## Dockerfile

@@ -1,0 +1,13 @@
+---
+title: "Cloud"
+layout: post
+date: 2020-06-20 12:00
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- Ensaio
+- Cloud
+
+category: blog
+author: thierry
+description: Markdown summary with different options

@@ -1,9 +1,9 @@
 # main text of home
-name: John Doe
-bio: A Man who travels the world eating noodles
+name: Thierry Braga
+bio: The Man Who Sold The World 
 
 # twitter summary info
-description: A blog about technology and stuff related
+description: Um blog sobre as tecnologias da moda  
 
 # if it's an external image, update below for true
 # better with square images
@@ -14,15 +14,15 @@ picture: assets/images/profile.jpg
 # and specify source (external or local).
 resume: true
 resume-external: true
-resume-url: https://google.com/?q=my+resume
+resume-url: https://drive.google.com/open?id=1B0OXdoF0qBYNs8bJDlXbjcCr0NZ-9fnk
 
-url: https://sergiokopplin.github.io/indigo
-# your url: https://USERNAME.github.io
+url: https://thierrygb.github.io
+# your url: https://thierrygb.github.io
 
 permalink: /:title/
 
 # To enable google analytics, supply your token below
-# analytics-google: 'UA-MYANALYTICS'
+#analytics-google: 'UA-164295570-1'
 
 # To enable piwik tracking, supply your url & site ID below
 # analytics-piwik-url: 'piwik.my-host.com'
@@ -34,37 +34,27 @@ disqus:
   categories: [blog, project] # only show disqus for posts that have these categories
 
 # if you don't have any of social below, comment the line
-facebook: myfacebook
-twitter: mytwitter
-# instagram: myinstagram
-# pinterest: mypinterest
-# linkedin: mylinkedin
-# youtube: myyoutube
-# spotify: myspotify
-github: mygithub
-# gitlab: mygitlab
-# lastfm: mylastfm
-# stackoverflow: 7044681/mystackoverflow
-# quora: userquora
-# reddit: username
-medium: medium
-# vimeo: myvimeo
-# lanyrd: mylanyrd
-email: myemail@gmail.com
+email: thierry.braga@outlook.com
+twitter: thierrygbraga
+instagram: thierry_braga
+linkedin: thierrybraga
+youtube: channel/UCY_mtHrZx7tAMukzzsevmrg
+spotify: thierrybraga
+github: thierrygb
+gitlab: thierrygb
+stackoverflow: 130921/thierry-braga
+reddit: thierrygb96
+#medium: thierry.braga
+#facebook: ThierryBraga1
 
 authors:
-  johndoe:
-    name: John Doe
-    bio: A Man who travels the world eating noodles
+  thierry:
+    name: Thierry Gonçalves Braga
+    bio: Vivendo a vida em meus próprios termos
     external-image: false
     picture: assets/images/profile.jpg
-    twitter: johndoe
-  jamesfoster:
-    name: James Foster
-    bio: A Man who develops software with coffee
-    external-image: false
-    picture: assets/images/james.jpg
-    twitter: jamesfoster
+    twitter: thierrygb
+
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal

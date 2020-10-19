@@ -1,0 +1,16 @@
+---
+title: "Inteligência artificial"
+layout: post
+date: 2020-01-10 00:00
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- Ensaio
+- Conceiro
+- IA
+
+star: true
+category: blog
+author: thierry
+description: Markdown summary with different options
+---

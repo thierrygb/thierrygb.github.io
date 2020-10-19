@@ -1,0 +1,12 @@
+---
+title: "HTTP"
+layout: post
+date: 2020-07-20 12:00
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- Network
+
+category: blog
+author: thierry
+description: Markdown summary with different options
